@@ -161,8 +161,8 @@ header .header-content .center .left .header-slogan {
     position: absolute;
     width: 350px;
     height: 31px;
-    left: 180px;
-    top: 50%;
+    left: -100px;
+    top: 10%;
     margin-top: -15.5px;
     border-left: 1px solid #444;
     padding-left: 30px;
@@ -181,7 +181,8 @@ header .header-content .center .right {
 }
 
 header .header-content .center .right .padding {
-    padding: 30px 0;
+    padding: 40px 0;
+    float:right;
 }
 
 header .header-content .center .right h3 {
@@ -189,6 +190,7 @@ header .header-content .center .right h3 {
     font-weight: 300;
     color: #fff;
     margin-bottom: 20px;
+
 }
 
 header .header-content .center .right h3 span {
