@@ -1,22 +1,26 @@
-/**
- * Created by PhpStorm.
- * User: zyten
- * Date: 25/10/2015
- * Time: 7:31 PM
- */
-
 <?php
- // This part sets up the connection to the
- // database (so you don't need to reopen the connection
- // again on the same page).
- $conn=odbc_connect("employee","","") or die (odbc_errormsg());
- if (!$conn )
- {
-     exit
-     ("Error connecting to database: ".$conn);
- }
- // Then you need to make sure the database you want
- // is selected.
- $sql = "SELECT * FROM empTable";
- $rs=odbc_exec($conn,$sql);
- ?>
+echo 'hello';
+$db_username = ''; //username
+$db_password = ''; //password
+
+//path to database file
+$database_path = "database.mdb";
+
+//check file exist before we proceed
+if (!file_exists($database_path)) {
+    die("Access database file not found !");
+}
+
+//create a new PDO object
+$database = new PDO("odbc:Driver={Microsoft Access Driver (*.mdb, *.accdb)};Dbq=C:\\xampp\\htdocs\\florist\\database.mdb;Uid=Admin");
+
+$sql  = "SELECT * FROM users";
+$result = $database->query($sql);
+while ($row = $result->fetch()) {
+    echo $row["u_name"];
+    echo $row["u_email"];
+    echo $row["u_website"];
+}
+
+?>
+

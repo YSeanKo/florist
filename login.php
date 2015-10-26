@@ -1,16 +1,23 @@
-/**
+<!--
  * Created by PhpStorm.
  * User: zyten
  * Date: 25/10/2015
  * Time: 7:31 PM
  */
-
+-->
 <html>
     <body>
         <?php
             session_start();
             // dBase file
-            include "database.php";
+            include "dbc.php";
+        $sql  = "SELECT * FROM users";
+        $result = $database->query($sql);
+        while ($row = $result->fetch()) {
+            echo $row["u_name"];
+            echo $row["u_email"];
+            echo $row["u_website"];
+        }
         ?>
 
         <form id='login' action='login.php' method='post' accept-charset='UTF-8'>
